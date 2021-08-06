@@ -1,33 +1,17 @@
-import {createStore} from "./create-store";
-import './styles.css'
-import {rootReducer} from "./redux/rootReducer";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-const counter = document.getElementById('counter');
-const addBtn = document.getElementById('add');
-const subBtn = document.getElementById('sub');
-const asyncBtn = document.getElementById('async');
-const themeBtn = document.getElementById('theme');
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-const store = createStore(rootReducer, 0)
-
-addBtn.addEventListener('click', () => {
-    store.dispatch({ type: 'INCREMENT' })
-})
-
-subBtn.addEventListener('click', () => {
-    store.dispatch({ type: 'DECREMENT' })
-})
-
-asyncBtn.addEventListener('click', () => {
-
-})
-
-store.subscribe(() => {
-    const state = store.getState()
-    counter.textContent = state
-})
-
-themeBtn.addEventListener('click', () => {
-    // document.body.classList.toggle('dark')
-})
-
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
